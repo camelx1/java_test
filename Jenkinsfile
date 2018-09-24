@@ -1,8 +1,6 @@
 node {
     def mvnHome = tool 'maven'
-    tools {
-        maven 'maven'
-    }
+    tool name: 'maven', type: 'maven'
     echo 'RUN pipeline job'
     stage ('Clone source'){
         def scmVars = checkout scm
