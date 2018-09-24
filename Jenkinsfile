@@ -5,4 +5,7 @@ node {
         echo "${scmVars}"
         sh "git fetch"
     }
+    stage ('build'){
+        sh "javac Hello.java"
+        }
 }
