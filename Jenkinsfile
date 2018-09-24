@@ -10,7 +10,7 @@ node {
     stage('SonarQube analysis') {
       withSonarQubeEnv('My SonarQube Server') {
 //          withEnv( ["PATH+MAVEN=${maven}/bin"] ) {
-            sh '${mvnHome}/bin/mvn clean package sonar:sonar'
+            sh '/opt/apache-maven-3.5.4/bin/mvn clean package sonar:sonar'
 //          }
       }  // SonarQube taskId is automatically attached to the pipeline context
     }
