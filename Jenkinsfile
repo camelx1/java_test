@@ -1,5 +1,8 @@
 node {
     def mvnHome = tool 'maven'
+    tools {
+        maven 'maven'
+    }
     echo 'RUN pipeline job'
     stage ('Clone source'){
         def scmVars = checkout scm
@@ -8,9 +11,9 @@ node {
     }
     stage('SonarQube analysis') {
       withSonarQubeEnv('My SonarQube Server') {
-          withEnv( ["PATH+MAVEN=${maven}/bin"] ) {
+//          withEnv( ["PATH+MAVEN=${maven}/bin"] ) {
             sh '${mvnHome}/bin/mvn clean package sonar:sonar'
-          }
+//          }
       }  // SonarQube taskId is automatically attached to the pipeline context
     }
    
